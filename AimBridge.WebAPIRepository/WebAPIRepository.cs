@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Configuration;
+using AimBridge.WebAPIRepository;
+using Newtonsoft.Json;
 
 namespace AimBridge.WebAPIClient
 {
@@ -35,14 +37,15 @@ namespace AimBridge.WebAPIClient
 
         }
 
-        public string GetTeamList()
+        public List<TeamModel> GetTeamList()
         {
             System.Net.WebClient client = new System.Net.WebClient();
             client.Headers.Add("apikey", APIKEY);
+            List<TeamModel> tmodels = null;
             try
             {
-                string content = client.DownloadString($"{baseurl}teams?source=abhiram");
-                return content;
+                string content = client.DownloadString($"{baseurl}teams?source=abhiram&format=json");
+                tmodels = JsonConvert.DeserializeObject<List<TeamModel>>(content);
             }
             catch (Exception ex)
             {
@@ -54,17 +57,22 @@ namespace AimBridge.WebAPIClient
                 client.Dispose();
             }
 
+            return tmodels;
+
         }
 
        
-        public string GetTeamCourses(string teamid)
+        public List<CourseModel> GetTeamCourses(string teamid)
         {
             System.Net.WebClient client = new System.Net.WebClient();
             client.Headers.Add("apikey", APIKEY);
+            List<CourseModel> cmodels = null;
+
+            
             try
             {
-                string content = client.DownloadString($"{baseurl}/teams/{teamid}/courses?source=abhiram");
-                return content;
+                string content = client.DownloadString($"{baseurl}/teams/{teamid}/courses?source=abhiram&format=json");
+                cmodels = JsonConvert.DeserializeObject<List<CourseModel>>(content);
             }
             catch(Exception ex) { 
              throw new Exception(ex.Message);
@@ -74,20 +82,23 @@ namespace AimBridge.WebAPIClient
                 client.Dispose();
             }
 
-
+            return cmodels;
 
 
 
 }
 
-        public string GetCourseUsers(string courseid)
+        public List<UserModel> GetCourseUsers(string courseid)
         {
             System.Net.WebClient client = new System.Net.WebClient();
+            List<UserModel> models = null;
             client.Headers.Add("apikey", APIKEY);
             try
             {
                 string content = client.DownloadString($"{baseurl}/courses/{courseid}/users?source=abhiram?&format=json");
-                return content;
+         
+                models = JsonConvert.DeserializeObject<List<UserModel>>(content);
+
             }
             catch (Exception ex)
             {
@@ -97,6 +108,7 @@ namespace AimBridge.WebAPIClient
             {
                 client.Dispose();
             }
+            return models;
         }
     }
 }

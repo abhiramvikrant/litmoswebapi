@@ -7,5 +7,9 @@ namespace AimBridge.WebAPIRepository
 {
    public class CourseModel
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+
+        public bool Active { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AimBridge.WebAPIClient;
+using AimBridge.WebAPIRepository;
+using System.Collections.Generic;
 
 namespace AimBridge.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class AimBridgeTests
     {
         [TestMethod]
         public void TestGetUsers()
@@ -17,15 +19,17 @@ namespace AimBridge.UnitTests
         public void TestGetTeam()
         {
             WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
-            string teamnames = rep.GetTeamList();
-            Assert.IsTrue(teamnames.Contains("<Team"));
+           List<TeamModel> tmod = rep.GetTeamList();
+            Assert.IsTrue(tmod.Count> 0);
 
         }
         [TestMethod]
         public void TestGetTeamCourses()
         {
             WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
-            string teamcourses = rep.GetTeamCourses("RFzga2x9NxM1");
+            List<CourseModel> teamcourses = rep.GetTeamCourses("RFzga2x9NxM1");
+            Assert.IsInstanceOfType(teamcourses, typeof(List<CourseModel>));
+            Assert.IsTrue(teamcourses.Count > 0);
 
         }
 
@@ -34,8 +38,8 @@ namespace AimBridge.UnitTests
         public void TestGetCourseUsers()
         {
             WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
-            string courseusers = rep.GetCourseUsers("rS1ivoKZBPQ1");
-            Assert.IsTrue(courseusers.Contains("FirstName"));
+System.Collections.Generic.List<UserModel> courseusers = rep.GetCourseUsers("rS1ivoKZBPQ1");
+            Assert.IsTrue(courseusers.Count> 0);
 
         }
     }
