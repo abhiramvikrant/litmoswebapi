@@ -10,7 +10,8 @@
     <form id="form1" runat="server">
         <div>
             Team :
-            <asp:DropDownList ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id">
+            <asp:DropDownList ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id" AppendDataBoundItems="True" AutoPostBack="True">
+                <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
         </div>
     </form>

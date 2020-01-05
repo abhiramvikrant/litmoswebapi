@@ -12,22 +12,29 @@ namespace AimBridge.WebAPIClient
 {
     public class WebAPIRepository
     {
+        // added to bypass security exception
         public const SslProtocols _Tls12 = (SslProtocols)0x00000C00;
         public const SecurityProtocolType Tls12 = (SecurityProtocolType)_Tls12;
+        //variables to be assigned from config file
+        private readonly string APIKEY, baseurl,ABsource;
+       
         public WebAPIRepository()
         {
+            // added to bypass security exception
             ServicePointManager.SecurityProtocol = Tls12;
+               APIKEY= ConfigurationManager.AppSettings["ABapikey"].ToString();
+               baseurl = ConfigurationManager.AppSettings["baseurl"].ToString();
+            ABsource = ConfigurationManager.AppSettings["ABsource"].ToString();
         }
 
-        private readonly string APIKEY = ConfigurationManager.AppSettings["ABapikey"].ToString();
-        private readonly string baseurl = ConfigurationManager.AppSettings["baseurl"].ToString();
+      
         public string GetUsers()
         {
             System.Net.WebClient client = new System.Net.WebClient();         
             client.Headers.Add("apikey", APIKEY);
             try
             {
-                Uri weburl = new Uri($"{baseurl}users?source=abhiram");
+                Uri weburl = new Uri($"{baseurl}users?source={ABsource}");
                 string content = client.DownloadString(weburl);
                 return content;
             }
@@ -55,7 +62,7 @@ namespace AimBridge.WebAPIClient
             try
             {
       
-                string content = client.DownloadString($"{baseurl}teams?source=abhiram&format=json");
+                string content = client.DownloadString($"{baseurl}teams?source={ABsource}&format=json");
                 tmodels = JsonConvert.DeserializeObject<List<TeamModel>>(content);
             }
             catch (Exception ex)
@@ -82,7 +89,7 @@ namespace AimBridge.WebAPIClient
             
             try
             {
-                string content = client.DownloadString($"{baseurl}/teams/{teamid}/courses?source=abhiram&format=json");
+                string content = client.DownloadString($"{baseurl}/teams/{teamid}/courses?source={ABsource}&format=json");
                 cmodels = JsonConvert.DeserializeObject<List<CourseModel>>(content);
             }
             catch(Exception ex) { 
@@ -106,7 +113,7 @@ namespace AimBridge.WebAPIClient
             client.Headers.Add("apikey", APIKEY);
             try
             {
-                string content = client.DownloadString($"{baseurl}/courses/{courseid}/users?source=abhiram?&format=json");
+                string content = client.DownloadString($"{baseurl}/courses/{courseid}/users?source={ABsource}?&format=json");
          
                 models = JsonConvert.DeserializeObject<List<UserModel>>(content);
 
