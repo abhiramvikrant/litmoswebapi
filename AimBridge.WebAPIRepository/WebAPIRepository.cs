@@ -5,11 +5,19 @@ using System.Text;
 using System.Configuration;
 using AimBridge.WebAPIRepository;
 using Newtonsoft.Json;
+using System.Security.Authentication;
+using System.Net;
 
 namespace AimBridge.WebAPIClient
 {
     public class WebAPIRepository
     {
+        public const SslProtocols _Tls12 = (SslProtocols)0x00000C00;
+        public const SecurityProtocolType Tls12 = (SecurityProtocolType)_Tls12;
+        public WebAPIRepository()
+        {
+            ServicePointManager.SecurityProtocol = Tls12;
+        }
 
         private readonly string APIKEY = ConfigurationManager.AppSettings["ABapikey"].ToString();
         private readonly string baseurl = ConfigurationManager.AppSettings["baseurl"].ToString();
@@ -37,6 +45,8 @@ namespace AimBridge.WebAPIClient
 
         }
 
+       
+        
         public List<TeamModel> GetTeamList()
         {
             System.Net.WebClient client = new System.Net.WebClient();
@@ -44,6 +54,7 @@ namespace AimBridge.WebAPIClient
             List<TeamModel> tmodels = null;
             try
             {
+      
                 string content = client.DownloadString($"{baseurl}teams?source=abhiram&format=json");
                 tmodels = JsonConvert.DeserializeObject<List<TeamModel>>(content);
             }
