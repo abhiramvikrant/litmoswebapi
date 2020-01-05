@@ -1,7 +1,6 @@
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\bin\AimBridge.WebAPI.UI.dll.config
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\bin\AimBridge.WebAPI.UI.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\bin\AimBridge.WebAPI.UI.pdb
-D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\obj\Debug\AimBridge.WebAPI.UI.csprojAssemblyReference.cache
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\obj\Debug\AimBridge.WebAPI.UI.csproj.CoreCompileInputs.cache
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\obj\Debug\AimBridge.WebAPI.UI.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPI.UI\obj\Debug\AimBridge.WebAPI.UI.pdb

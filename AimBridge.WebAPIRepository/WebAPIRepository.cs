@@ -86,7 +86,7 @@ namespace AimBridge.WebAPIClient
             client.Headers.Add("apikey", APIKEY);
             try
             {
-                string content = client.DownloadString($"{baseurl}/courses/{courseid}/users?source=abhiram");
+                string content = client.DownloadString($"{baseurl}/courses/{courseid}/users?source=abhiram?&format=json");
                 return content;
             }
             catch (Exception ex)
