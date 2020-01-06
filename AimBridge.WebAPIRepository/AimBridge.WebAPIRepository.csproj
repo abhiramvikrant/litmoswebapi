@@ -46,6 +46,7 @@
     <Compile Include="CourseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamModel.cs" />
+    <Compile Include="TeamUsersModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="WebAPIRepository.cs" />
   </ItemGroup>

@@ -34,7 +34,7 @@ namespace AimBridge.WebAPIClient
             client.Headers.Add("apikey", APIKEY);
             try
             {
-                Uri weburl = new Uri($"{baseurl}users?source={ABsource}");
+                Uri weburl = new Uri($"{baseurl}users?source={ABsource}&format=json");
                 string content = client.DownloadString(weburl);
                 return content;
             }
@@ -127,6 +127,30 @@ namespace AimBridge.WebAPIClient
                 client.Dispose();
             }
             return models;
+        }
+
+        public List<TeamUsersModel> GetTeamUsers(string teamid)
+        {
+            System.Net.WebClient client = new System.Net.WebClient();
+            List<TeamUsersModel> TUmodels = null;
+            client.Headers.Add("apikey", APIKEY);
+            try
+            {
+                string content = client.DownloadString($"{baseurl}/teams/{teamid}/users?source={ABsource}?&format=json");
+
+                TUmodels = JsonConvert.DeserializeObject<List<TeamUsersModel>>(content);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                client.Dispose();
+            }
+            return TUmodels;
+
         }
     }
 }
