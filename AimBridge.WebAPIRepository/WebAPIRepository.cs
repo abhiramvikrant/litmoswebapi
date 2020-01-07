@@ -22,35 +22,14 @@ namespace AimBridge.WebAPIClient
         {
             // added to bypass security exception
             ServicePointManager.SecurityProtocol = Tls12;
-               APIKEY= ConfigurationManager.AppSettings["ABapikey"].ToString();
+            ConfigDbContext db = new ConfigDbContext();
+            APIKEY = db.GetAPIKey();
                baseurl = ConfigurationManager.AppSettings["baseurl"].ToString();
             ABsource = ConfigurationManager.AppSettings["ABsource"].ToString();
         }
 
       
-        public string GetUsers()
-        {
-            System.Net.WebClient client = new System.Net.WebClient();         
-            client.Headers.Add("apikey", APIKEY);
-            try
-            {
-                Uri weburl = new Uri($"{baseurl}users?source={ABsource}&format=json");
-                string content = client.DownloadString(weburl);
-                return content;
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                client.Dispose();
-            }
-
-
-
-        }
+ 
 
        
         

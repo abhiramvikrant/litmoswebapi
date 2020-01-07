@@ -8,13 +8,7 @@ namespace AimBridge.UnitTests
     [TestClass]
     public class AimBridgeTests
     {
-        [TestMethod]
-        public void TestGetUsers()
-        {
-            WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
-            string res = rep.GetUsers();
-            Assert.IsTrue(res.Contains("<User"));
-        }
+   
         [TestMethod]
         public void TestGetTeam()
         {
