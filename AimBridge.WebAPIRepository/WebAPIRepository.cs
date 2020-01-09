@@ -7,6 +7,7 @@ using AimBridge.WebAPIRepository;
 using Newtonsoft.Json;
 using System.Security.Authentication;
 using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace AimBridge.WebAPIClient
 {
@@ -129,6 +130,34 @@ namespace AimBridge.WebAPIClient
                 client.Dispose();
             }
             return TUmodels;
+
+        }
+
+        public string GetCourseCusatomImportBulkID(string courseid)
+        {
+            System.Net.WebClient client = new System.Net.WebClient();
+            client.Headers.Add("apikey", APIKEY);
+            
+
+
+            try
+            {
+                string content = client.DownloadString($"{baseurl}/courses/{courseid}?source={ABsource}&format=json");
+                JObject o = JObject.Parse(content);
+                JToken t = o.SelectToken("CourseCodeForBulkImport");
+                return t.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                client.Dispose();
+            }
+
+           
+
 
         }
     }

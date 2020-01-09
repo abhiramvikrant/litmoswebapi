@@ -17,7 +17,7 @@ namespace AimBridge.UnitTests
             Assert.IsTrue(tmod.Count> 0);
 
         }
-        [TestMethod]
+       
         public void TestGetTeamCourses()
         {
             WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
@@ -36,5 +36,17 @@ System.Collections.Generic.List<UserModel> courseusers = rep.GetCourseUsers("rS1
             Assert.IsTrue(courseusers.Count> 0);
 
         }
+
+        [TestMethod]
+        public void TestGetCourses()
+
+        {
+            WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
+           string teamcourses = rep.GetCourseCusatomImportBulkID("rS1ivoKZBPQ1");
+           Assert.IsTrue(teamcourses.Length > 0);
+
+        }
+
+
     }
 }
