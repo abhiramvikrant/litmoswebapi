@@ -17,7 +17,7 @@ namespace AimBridge.UnitTests
             Assert.IsTrue(tmod.Count> 0);
 
         }
-       
+       [TestMethod]
         public void TestGetTeamCourses()
         {
             WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
