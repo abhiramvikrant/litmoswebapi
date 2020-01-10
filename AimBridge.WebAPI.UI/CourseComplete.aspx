@@ -14,16 +14,18 @@
     <!-- Bootstrap CSS file -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(){
-$("#<%=gvUsers.ClientID%>input[id*='cbCoursesHeader']:checkbox").click(function () {                      
-        //Header checkbox is checked or not
-var bool = $("#<%=gvUsers.ClientID%>input[id*='cbCoursesHeader']:checkbox").is(':checked');
-//check and check the checkboxes on basis of Boolean value
-$("#<%=gvUsers.ClientID%> input[id*='cbUsers']:checkbox").attr('checked', bool);
- });
-    }
-</script>
+   
+<script type="text/javascript">    
+    $(document).ready(function () {    
+        $("[id *= cbCoursesHeader]").click(function () {    
+            checkChildCheckbox(this);    
+        });    
+    
+        function checkChildCheckbox(rowCheckbox) {    
+            $("[id *= cbUsers]").prop("checked", $(rowCheckbox).prop("checked"));    
+        }    
+    });    
+</script>  
 </head>
 <body>
     <div class="container">
