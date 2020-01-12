@@ -53,6 +53,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Fakes Include="Fakes\AjaxControlToolkit.fakes" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -62,7 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CourseComplete.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="setapikey.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CourseComplete.aspx.cs">
@@ -73,6 +78,13 @@
       <DependentUpon>CourseComplete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="setapikey.aspx.cs">
+      <DependentUpon>setapikey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="setapikey.aspx.designer.cs">
+      <DependentUpon>setapikey.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AimBridge.WebAPIRepository\AimBridge.WebAPIRepository.csproj">

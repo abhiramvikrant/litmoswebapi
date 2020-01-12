@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CourseComplete.aspx.cs" Inherits="AimBridge.WebAPI.UI.CourseComplete" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,6 +8,34 @@
     <style>
         tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+        .modal
+{
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+.center
+{
+    z-index: 1000;
+    margin: 300px auto;
+    padding: 10px;
+    width: 130px;
+    background-color: White;
+    border-radius: 10px;
+    filter: alpha(opacity=100);
+    opacity: 1;
+  
+}
+.center img
+{
+    height: 128px;
+    width: 128px;
 }
     </style>
     <title>AimBridge Course Complete</title>
@@ -28,8 +57,17 @@
 </script>  
 </head>
 <body>
-    <div class="container">
+ 
+  
+
     <form id="form1" runat="server">
+           <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div class="card-header"><div><h1>Manual Course Completion</h1></div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set API key</a></div></div>
+            
+                <div class="container">
         <div class="row">
             <div class="col-md-2 m-4">
             Team :<br />
@@ -44,7 +82,15 @@
             </asp:DropDownList>
                 </div>
         </div>
-        <div class="row"><div class="col m-4">
+                    <div class="row">
+                          <div class="col-md-2 m-4">
+            Completion Date :<br />
+                              <asp:TextBox runat="server" ID="txtDate"></asp:TextBox>
+                             
+         
+                </div>
+                    </div>
+        <div class="row"><div class="col">
         <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
             <Columns>
                 <asp:TemplateField>
@@ -70,7 +116,18 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </form>
+   
         </div>
+             
+            </ContentTemplate>
+        </asp:UpdatePanel>
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+        <ProgressTemplate>
+          <img src="loader4.gif" />
+            Loading...
+        
+    </div></ProgressTemplate>
+    </asp:UpdateProgress>
+         </form>
 </body>
 </html>
