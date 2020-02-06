@@ -3,7 +3,7 @@ D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIReposi
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\bin\Debug\AimBridge.WebAPIRepository.pdb
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\bin\Debug\Newtonsoft.Json.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\bin\Debug\Newtonsoft.Json.xml
-D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.csproj.CoreCompileInputs.cache
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.csproj.CopyComplete
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.pdb
+D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.csprojAssemblyReference.cache

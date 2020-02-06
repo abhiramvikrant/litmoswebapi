@@ -37,6 +37,18 @@
     height: 128px;
     width: 128px;
 }
+.control{
+    width: 100%;
+}
+control_noborder
+{
+    width: 100%;
+    border:0px;
+    table-layout: fixed;
+}
+
+
+
     </style>
     <title>AimBridge Course Complete</title>
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -65,33 +77,35 @@
 
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="card-header"><div><h1>Manual Course Completion</h1></div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set API key</a></div></div>
+            <div class="card-header" ><div><h1>AimBridge Bulk Course Complete</h1></div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set API key</a></div></div>
             
                 <div class="container">
+                    <div class="row"><div class="col-md-6">&nbsp;</div></div>
         <div class="row">
-            <div class="col-md-2 m-4">
+            <div class="col-md-6">
             Team :<br />
-            <asp:DropDownList ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged">
+            <asp:DropDownList CssClass="control" ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged">
                 <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
                 </div>
-            <div class="col-md-2 m-4">
+            <div class="col-md-6">
             Course:<br />
-            <asp:DropDownList ID="ddlCourse" runat="server" AppendDataBoundItems="True" DataTextField="Name" DataValueField="Id" OnSelectedIndexChanged="ddlCourse_SelectedIndexChanged" AutoPostBack="True">
+            <asp:DropDownList CssClass="control" ID="ddlCourse" runat="server" AppendDataBoundItems="True" DataTextField="Name" DataValueField="Id" OnSelectedIndexChanged="ddlCourse_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
                 </div>
         </div>
-                    <div class="row">
-                          <div class="col-md-2 m-4">
+                    <div class="row mt-4">
+                          <div class="col-md-6">
             Completion Date :<br />
-                              <asp:TextBox runat="server" ID="txtDate"></asp:TextBox>
+                             <input type="date"  class="control" />
                              
          
                 </div>
                     </div>
-        <div class="row"><div class="col">
-        <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
+        <div class="row mt-4">
+            <div class="col-md-12">
+        <asp:GridView Width="100%" CellPadding="2" CellSpacing="4"  BorderWidth="0px" CssClass="control_noborder" ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
             <Columns>
                 <asp:TemplateField>
                     <HeaderTemplate>
@@ -105,11 +119,14 @@
                 <asp:BoundField DataField="FirstName" HeaderText="First Name" ReadOnly="True" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="Last Name" ReadOnly="True" SortExpression="LastName" />
             </Columns>
+            <RowStyle Width="1140px" />
+            <AlternatingRowStyle Width="1140px" />
+            <HeaderStyle Width="1140px" />
         </asp:GridView>
             </div>
             </div>
         <div class="row">
-            <div class=" col-md-12 m-4">
+            <div class=" col-md-12 mt-4">
         <asp:Button ID="btComplete" runat="server" OnClick="btComplete_Click" Text="Mark Complete" />
                 </div>
             </div>

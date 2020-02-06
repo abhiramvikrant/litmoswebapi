@@ -13,7 +13,7 @@
     <RootNamespace>AimBridge.WebAPI.UI</RootNamespace>
     <AssemblyName>AimBridge.WebAPI.UI</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -107,7 +107,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53018</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53018/</IISUrl>
+          <IISUrl>http://localhost/AimBridge.WebAPI.UI</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
