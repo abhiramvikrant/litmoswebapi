@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CourseComplete.aspx.cs" Inherits="AimBridge.WebAPI.UI.CourseComplete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CourseComplete.aspx.cs" Inherits="AimBridge.WebAPI.UI.CourseComplete" ValidateRequest="false"%>
 
 
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ control_noborder
                     <div class="row mt-4">
                           <div class="col-md-6">
             Completion Date :<br />
-                                   <input type="date" id="datepicker" class="control"/>
+                                   <input type="date" id="datepicker" runat="server" class="control"/>
                         
          
                 </div>
@@ -133,6 +133,7 @@ control_noborder
         <div class="row">
             <div class=" col-md-12 mt-4">
         <asp:Button ID="btComplete" runat="server" OnClick="btComplete_Click" Text="Mark Complete" />
+                <asp:Label ID="lblmsg" runat="server" />
                 </div>
             </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

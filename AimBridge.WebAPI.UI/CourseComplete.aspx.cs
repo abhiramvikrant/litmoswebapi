@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AimBridge.WebAPIRepository;
 using AimBridge.WebAPIClient;
+using System.Text;
+using System.Dynamic;
+using System.Xml.Linq;
+
 namespace AimBridge.WebAPI.UI
 {
     public partial class CourseComplete : System.Web.UI.Page
@@ -87,7 +91,38 @@ namespace AimBridge.WebAPI.UI
 
         protected void btComplete_Click(object sender, EventArgs e)
         {
+            GridViewRowCollection rows = gvUsers.Rows;
+            StringBuilder xmlstr = new StringBuilder();
+            string compdate = DateTime.Parse(datepicker.Value).ToString("yyyy-MM-dd");
+            foreach (GridViewRow item in rows)
+            {
+                if(item.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkSelect = (CheckBox)item.FindControl("cbUsers");
+                    if (chkSelect != null && chkSelect.Checked)
+                    {
+                        //xmlstr.Append("<CourseHistoryImport>");
+                        //xmlstr.Append($"<Username>{item.Cells[1].Text}</Username>");
+                        //xmlstr.Append($"<CourseId></CourseId>");
+                        //xmlstr.Append($"<CompletedDate>{compdate}</CompletedDate>");
+                        //xmlstr.Append($"<Complete>{true}</Complete>");
+                        //xmlstr.Append("</CourseHistoryImport>");
+                        //lblmsg.Text = xmlstr.ToString();
+                        XElement root = new XElement("CourseHistoryImport", 
+                            new XElement("Username", item.Cells[1].Text),
+                            new XElement("CourseId", string.Empty),
+                            new XElement("CompletedDate", compdate),
+                            new XElement("Complete", "true"));
+                        lblmsg.Text = root.ToString();
 
+
+                    }
+
+                }
+
+            }
+
+           
         }
     }
 }

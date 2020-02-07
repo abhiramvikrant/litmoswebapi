@@ -5,12 +5,10 @@ D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bi
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.UnitTests.dll.config
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.UnitTests.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.UnitTests.pdb
-D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.WebAPI.UI.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.WebAPIRepository.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\Newtonsoft.Json.dll
-D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.WebAPI.UI.pdb
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.WebAPIRepository.pdb
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\AimBridge.WebAPIRepository.dll.config
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
