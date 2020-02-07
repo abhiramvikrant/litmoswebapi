@@ -76,7 +76,7 @@ namespace AimBridge.WebAPI.UI
                 var dsmodel = cmodel.Join(modelTu, r => r.UserName, y => y.Username, (r, y) => new { r.UserName, r.FirstName, r.LastName }).ToList();
                 if (dsmodel.Count > 0)
                 {
-                    gvUsers.Style.Add("display", "block");
+                    //gvUsers.Style.Add("display", "block");
                     gvUsers.DataSource = dsmodel;
                     gvUsers.DataBind();
                     btComplete.Style.Add("display", "block");

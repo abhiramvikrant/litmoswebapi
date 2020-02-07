@@ -57,15 +57,14 @@ control_noborder
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    
 <script type="text/javascript">    
-    $(document).ready(function () {    
-        $("[id *= cbCoursesHeader]").click(function () {    
-            checkChildCheckbox(this);    
-        });    
-    
-        function checkChildCheckbox(rowCheckbox) {    
-            $("[id *= cbUsers]").prop("checked", $(rowCheckbox).prop("checked"));    
-        }    
-    });    
+    function SelectAllCheckboxes(chk) {
+        $('#<%=gvUsers.ClientID %>').find("input:checkbox").each(function () {
+        if (this != chk) {
+            this.checked = chk.checked;
+        }
+    });
+
+}
 </script>  
 </head>
 <body>
@@ -105,11 +104,11 @@ control_noborder
                     </div>
         <div class="row mt-4">
             <div class="col-md-12">
-        <asp:GridView Width="100%" CellPadding="2" CellSpacing="4"  BorderWidth="0px" CssClass="control_noborder" ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
+        <asp:GridView Width="100%" CellPadding="4" CellSpacing="4"  BorderWidth="1px" CssClass="control_noborder" ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
             <Columns>
                 <asp:TemplateField>
                     <HeaderTemplate>
-                        <asp:CheckBox ID="cbCoursesHeader" CssClass="chkHeader" runat="server" />
+                        <asp:CheckBox ID="cbCoursesHeader" CssClass="chkHeader" onclick="javascript:SelectAllCheckboxes(this);"  runat="server" TextAlign="Left" />
                     </HeaderTemplate>
                     <ItemTemplate>
                         <asp:CheckBox ID="cbUsers" CssClass="chkItem" runat="server" />
@@ -119,9 +118,9 @@ control_noborder
                 <asp:BoundField DataField="FirstName" HeaderText="First Name" ReadOnly="True" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="Last Name" ReadOnly="True" SortExpression="LastName" />
             </Columns>
-            <RowStyle Width="1140px" />
-            <AlternatingRowStyle Width="1140px" />
-            <HeaderStyle Width="1140px" />
+            <RowStyle Width="100%" />
+            <AlternatingRowStyle Width="100%" />
+            <HeaderStyle Width="100%" />
         </asp:GridView>
             </div>
             </div>
