@@ -101,19 +101,20 @@ namespace AimBridge.WebAPI.UI
                     CheckBox chkSelect = (CheckBox)item.FindControl("cbUsers");
                     if (chkSelect != null && chkSelect.Checked)
                     {
-                        //xmlstr.Append("<CourseHistoryImport>");
-                        //xmlstr.Append($"<Username>{item.Cells[1].Text}</Username>");
-                        //xmlstr.Append($"<CourseId></CourseId>");
-                        //xmlstr.Append($"<CompletedDate>{compdate}</CompletedDate>");
-                        //xmlstr.Append($"<Complete>{true}</Complete>");
-                        //xmlstr.Append("</CourseHistoryImport>");
-                        //lblmsg.Text = xmlstr.ToString();
-                        XElement root = new XElement("CourseHistoryImport", 
-                            new XElement("Username", item.Cells[1].Text),
-                            new XElement("CourseId", string.Empty),
-                            new XElement("CompletedDate", compdate),
-                            new XElement("Complete", "true"));
-                        lblmsg.Text = root.ToString();
+                        xmlstr.Append("<CourseHistoryImport>");
+                        xmlstr.Append($"<Username>{item.Cells[1].Text}</Username>");
+                        xmlstr.Append($"<CourseId></CourseId>");
+                        xmlstr.Append($"<CompletedDate>{compdate}</CompletedDate>");
+                        xmlstr.Append($"<Complete>true</Complete>");
+                        xmlstr.Append("</CourseHistoryImport>");
+                        xmlstr.Replace("<", "&lt;").Replace(">", "&gt;").Replace(@"\", "\\");
+                        lblmsg.Text = xmlstr.ToString();
+                        //XElement root = new XElement("CourseHistoryImport", 
+                        //    new XElement("Username", item.Cells[1].Text),
+                        //    new XElement("CourseId", string.Empty),
+                        //    new XElement("CompletedDate", compdate),
+                        //    new XElement("Complete", "true"));
+                        //lblmsg.Text = root.ToString();
 
 
                     }
