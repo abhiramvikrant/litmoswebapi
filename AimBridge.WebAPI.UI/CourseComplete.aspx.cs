@@ -85,6 +85,10 @@ namespace AimBridge.WebAPI.UI
                     gvUsers.DataBind();
                     btComplete.Style.Add("display", "block");
                 }
+                else
+                {
+                    gvUsers.Style.Add("display", "none");
+                }
 
             }
         }
