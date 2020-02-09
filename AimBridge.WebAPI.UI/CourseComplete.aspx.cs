@@ -80,14 +80,18 @@ namespace AimBridge.WebAPI.UI
                 var dsmodel = cmodel.Join(modelTu, r => r.UserName, y => y.Username, (r, y) => new { r.UserName, r.FirstName, r.LastName }).ToList();
                 if (dsmodel.Count > 0)
                 {
-                    //gvUsers.Style.Add("display", "block");
+                    
                     gvUsers.DataSource = dsmodel;
                     gvUsers.DataBind();
+                   // gvUsers.Style.Add("display", "block");
                     btComplete.Style.Add("display", "block");
                 }
                 else
                 {
+                    gvUsers.DataSource = null;
+                    gvUsers.DataBind();
                     gvUsers.Style.Add("display", "none");
+                    btComplete.Style.Add("display", "none");
                 }
 
             }
