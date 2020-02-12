@@ -48,6 +48,9 @@ control_noborder
     table-layout: fixed;
 }
 
+.dateclass{
+    width: 100%;
+}
 
 
     </style>
@@ -55,12 +58,17 @@ control_noborder
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS file -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
    
 <script type="text/javascript">  
+
+    $(document).ready(function () {
+        $("#dp").datepicker()
+    });
     
     function SelectAllCheckboxes(chk) {
         $('#<%=gvUsers.ClientID %>').find("input:checkbox").each(function () {
@@ -92,24 +100,27 @@ control_noborder
             <asp:DropDownList CssClass="control" ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged">
                 <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvTeam" runat="server" ControlToValidate="ddlTeam" InitialValue="-- Select --" ValidationGroup="vgComplete" ErrorMessage="Please select a Team" Text="*" />
                 </div>
             <div class="col-md-6">
             Course:<br />
             <asp:DropDownList CssClass="control" ID="ddlCourse" runat="server" AppendDataBoundItems="True" DataTextField="Name" DataValueField="Id" OnSelectedIndexChanged="ddlCourse_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
+                  <asp:RequiredFieldValidator ID="rfvCourse" runat="server" ControlToValidate="ddlCourse" InitialValue="-- Select --" ValidationGroup="vgComplete" ErrorMessage="Please select a Course" Text="*" />
                 </div>
         </div>
                     <div class="row mt-4">
                           <div class="col-md-6">
             Completion Date :<br />
-                                   <input type="date" id="datepicker" runat="server" class="control"/>
+                                   <input type="date" id="datepicker" runat="server" class="control" value=''/>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlCourse" InitialValue="-- Select --" ValidationGroup="vgComplete" ErrorMessage="Please select a Completion Date" Text="*" />
                         
-         
+         <input type="text" id="dp" class="dateclass">
                 </div>
                     </div>
         <div class="row mt-4">
-            <div class="col-md-12">
+            <div class="col-md-12" id="dvGrid" runat="server">
         <asp:GridView Width="100%" CellPadding="4" CellSpacing="4"  BorderWidth="1px" CssClass="control_noborder" ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
             <Columns>
                 <asp:TemplateField>
@@ -132,7 +143,7 @@ control_noborder
             </div>
         <div class="row">
             <div class=" col-md-12 mt-4">
-        <asp:Button ID="btComplete" runat="server" OnClick="btComplete_Click" Text="Mark Complete" />
+        <asp:Button ID="btComplete" runat="server" OnClick="btComplete_Click" Text="Mark Complete" ValidationGroup="vgComplete" />
                 <asp:Label ID="lblmsg" runat="server" />
                 </div>
             </div>

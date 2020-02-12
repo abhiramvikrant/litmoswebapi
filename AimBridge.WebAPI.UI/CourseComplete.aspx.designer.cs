@@ -51,6 +51,15 @@ namespace AimBridge.WebAPI.UI
         protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
 
         /// <summary>
+        /// rfvTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTeam;
+
+        /// <summary>
         /// ddlCourse control.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,15 @@ namespace AimBridge.WebAPI.UI
         protected global::System.Web.UI.WebControls.DropDownList ddlCourse;
 
         /// <summary>
+        /// rfvCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCourse;
+
+        /// <summary>
         /// datepicker control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,24 @@ namespace AimBridge.WebAPI.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl datepicker;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// dvGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvGrid;
 
         /// <summary>
         /// gvUsers control.

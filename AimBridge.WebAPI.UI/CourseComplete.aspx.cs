@@ -18,6 +18,8 @@ namespace AimBridge.WebAPI.UI
         {
             if(!Page.IsPostBack)
             {
+                //datepicker.Value = DateTime.Today.ToShortDateString();
+                dvGrid.Visible = false;
                 btComplete.Style.Add("display", "none");
                 WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
                 List<TeamModel> tmodels = rep.GetTeamList();
@@ -83,14 +85,17 @@ namespace AimBridge.WebAPI.UI
                     
                     gvUsers.DataSource = dsmodel;
                     gvUsers.DataBind();
-                   // gvUsers.Style.Add("display", "block");
+                    //gvUsers.Style.Add("display", "block");
+                    dvGrid.Visible = true;
+                  
                     btComplete.Style.Add("display", "block");
                 }
                 else
                 {
                     gvUsers.DataSource = null;
                     gvUsers.DataBind();
-                    gvUsers.Style.Add("display", "none");
+
+                    dvGrid.Visible = false;
                     btComplete.Style.Add("display", "none");
                 }
 
@@ -116,7 +121,7 @@ namespace AimBridge.WebAPI.UI
                         xmlstr.Append($"<Complete>true</Complete>");
                         xmlstr.Append("</CourseHistoryImport>");
                         xmlstr.Replace("<", "&lt;").Replace(">", "&gt;").Replace(@"\", "\\");
-                        lblmsg.Text = xmlstr.ToString();
+                        //lblmsg.Text = xmlstr.ToString();
                         //XElement root = new XElement("CourseHistoryImport", 
                         //    new XElement("Username", item.Cells[1].Text),
                         //    new XElement("CourseId", string.Empty),
@@ -131,7 +136,15 @@ namespace AimBridge.WebAPI.UI
 
             }
 
+            if (xmlstr.Length > 0)
+            {
+                WebAPIClient.WebAPIRepository rep = new WebAPIClient.WebAPIRepository();
+                List<string> res = rep.PostCompleteCourseRequest(xmlstr.ToString());
+            }
+
            
         }
+
+        
     }
 }

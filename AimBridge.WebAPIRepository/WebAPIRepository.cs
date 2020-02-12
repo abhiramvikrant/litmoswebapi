@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Security.Authentication;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace AimBridge.WebAPIClient
 {
@@ -29,11 +30,34 @@ namespace AimBridge.WebAPIClient
             ABsource = ConfigurationManager.AppSettings["ABsource"].ToString();
         }
 
-      
- 
+        public List<string> PostCompleteCourseRequest(string xmlstring)
+        {
+            List<string> results = new List<string>();
+            string aburl = $"{baseurl}historyimports?source={ABsource}";
+           HttpWebRequest request = (HttpWebRequest)WebRequest.Create(aburl);
+            request.Headers.Add("apikey", APIKEY);
+            byte[] requestInFormOfBytes = System.Text.Encoding.ASCII.GetBytes(xmlstring);
+            request.Method = "POST";
+            request.ContentType = "text/xml;charset=utf-8";
+            request.ContentLength = requestInFormOfBytes.Length;
+            Stream requestStream = request.GetRequestStream();
+            requestStream.Write(requestInFormOfBytes, 0, requestInFormOfBytes.Length);
+            requestStream.Close();
 
-       
-        
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader respStream = new StreamReader(response.GetResponseStream(), System.Text.Encoding.Default);
+            results.Add(respStream.ReadToEnd());           
+            respStream.Close();
+            response.Close();
+
+            return results;
+        }
+
+
+
+
+
+
         public List<TeamModel> GetTeamList()
         {
             System.Net.WebClient client = new System.Net.WebClient();
