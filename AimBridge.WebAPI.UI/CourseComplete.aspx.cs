@@ -18,6 +18,7 @@ namespace AimBridge.WebAPI.UI
         {
             if(!Page.IsPostBack)
             {
+              
                 //datepicker.Value = DateTime.Today.ToShortDateString();
                 dvGrid.Visible = false;
                 btComplete.Style.Add("display", "none");
@@ -106,7 +107,7 @@ namespace AimBridge.WebAPI.UI
         {
             GridViewRowCollection rows = gvUsers.Rows;
             StringBuilder xmlstr = new StringBuilder();
-            string compdate = DateTime.Parse(datepicker.Value).ToString("yyyy-MM-dd");
+            string compdate = DateTime.Parse(txtDatePicker.Text).ToString("yyyy-MM-dd");
             foreach (GridViewRow item in rows)
             {
                 if(item.RowType == DataControlRowType.DataRow)

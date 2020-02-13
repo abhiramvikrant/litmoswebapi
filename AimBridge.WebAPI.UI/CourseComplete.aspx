@@ -113,11 +113,12 @@ control_noborder
                     <div class="row mt-4">
                           <div class="col-md-6">
             Completion Date :<br />
-                                   <input type="date" id="datepicker" runat="server" class="control" value=''/>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlCourse" InitialValue="-- Select --" ValidationGroup="vgComplete" ErrorMessage="Please select a Completion Date" Text="*" />
+                                  <asp:TextBox ID="txtDatePicker" runat="server" CssClass="control" />
+                             <%-- <ajaxToolkit:CalendarExtender TargetControlID="txtDatePicker" runat="server" ID="ajaxCal"/>--%><ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDatePicker" />
+                                <asp:RequiredFieldValidator ID="rfvDatePicker" runat="server" ControlToValidate="txtDatePicker"  ValidationGroup="vgComplete" ErrorMessage="Please select a Completion Date" Text="*" />
                         
-         <input type="text" id="dp" class="dateclass">
-                </div>
+        
+                </div> /
                     </div>
         <div class="row mt-4">
             <div class="col-md-12" id="dvGrid" runat="server">
