@@ -18,6 +18,7 @@ namespace AimBridge.WebAPI.UI
         {
             if(!Page.IsPostBack)
             {
+                txtDatePicker.Text = DateTime.Now.ToShortDateString();
               
                 //datepicker.Value = DateTime.Today.ToShortDateString();
                 dvGrid.Visible = false;
@@ -88,7 +89,8 @@ namespace AimBridge.WebAPI.UI
                     gvUsers.DataBind();
                     //gvUsers.Style.Add("display", "block");
                     dvGrid.Visible = true;
-                  
+
+                    dvComplete.Visible = true;
                     btComplete.Style.Add("display", "block");
                 }
                 else
@@ -98,6 +100,9 @@ namespace AimBridge.WebAPI.UI
 
                     dvGrid.Visible = false;
                     btComplete.Style.Add("display", "none");
+                    dvComplete.Visible = false;
+                    //btComplete.Visible = false;
+                    //btComplete.Style.Add("display", "none");
                 }
 
             }

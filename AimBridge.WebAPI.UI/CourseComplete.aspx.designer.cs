@@ -42,6 +42,15 @@ namespace AimBridge.WebAPI.UI
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
+        /// vsMarkComplete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsMarkComplete;
+
+        /// <summary>
         /// ddlTeam control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace AimBridge.WebAPI.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvUsers;
+
+        /// <summary>
+        /// dvComplete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvComplete;
 
         /// <summary>
         /// btComplete control.

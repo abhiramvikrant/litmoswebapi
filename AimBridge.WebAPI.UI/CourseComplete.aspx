@@ -64,24 +64,18 @@ control_noborder
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
    
-<script type="text/javascript">  
-
-    $(document).ready(function () {
-        $("#dp").datepicker()
-    });
-    
-    function SelectAllCheckboxes(chk) {
-        $('#<%=gvUsers.ClientID %>').find("input:checkbox").each(function () {
-            if (this != chk) {
-                this.checked = chk.checked;
-            }
-        });
-    }
-     
-</script>  
 
 </head>
 <body>
+    <script type="text/javascript">
+        function SelectAllCheckboxes(chk) {
+            $('#<%=gvUsers.ClientID %>').find("input:checkbox").each(function () {
+                  if (this != chk) {
+                      this.checked = chk.checked;
+                  }
+              });
+          }
+    </script>
  
   
 
@@ -90,10 +84,12 @@ control_noborder
 
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="card-header" ><div><h1>AimBridge Bulk Course Complete</h1></div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set API key</a></div></div>
+            <div class="card-header" ><div><h1>AimBridge Bulk Course Complete</h1>
+      
+                </div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set API key</a></div></div>
             
                 <div class="container">
-                    <div class="row"><div class="col-md-6">&nbsp;</div></div>
+                    <div class="row"><div class="col-md-6">          <asp:ValidationSummary ID="vsMarkComplete" ShowSummary="true" runat="server"  ValidationGroup="vgComplete" HeaderText="Fix the following errors:"/></div></div>
         <div class="row">
             <div class="col-md-6">
             Team :<br />
@@ -114,11 +110,11 @@ control_noborder
                           <div class="col-md-6">
             Completion Date :<br />
                                   <asp:TextBox ID="txtDatePicker" runat="server" CssClass="control" />
-                             <%-- <ajaxToolkit:CalendarExtender TargetControlID="txtDatePicker" runat="server" ID="ajaxCal"/>--%><ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDatePicker" />
+                             <%-- <ajaxToolkit:CalendarExtender TargetControlID="txtDatePicker" runat="server" ID="ajaxCal"/>--%><ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDatePicker" PopupButtonID="Image1" />
                                 <asp:RequiredFieldValidator ID="rfvDatePicker" runat="server" ControlToValidate="txtDatePicker"  ValidationGroup="vgComplete" ErrorMessage="Please select a Completion Date" Text="*" />
                         
         
-                </div> /
+                </div> 
                     </div>
         <div class="row mt-4">
             <div class="col-md-12" id="dvGrid" runat="server">
@@ -143,7 +139,7 @@ control_noborder
             </div>
             </div>
         <div class="row">
-            <div class=" col-md-12 mt-4">
+            <div class="col-md-12 mt-4" id="dvComplete" runat="server">
         <asp:Button ID="btComplete" runat="server" OnClick="btComplete_Click" Text="Mark Complete" ValidationGroup="vgComplete" />
                 <asp:Label ID="lblmsg" runat="server" />
                 </div>
