@@ -10,7 +10,7 @@
         tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-        .modal
+ .modal
 {
     position: fixed;
     z-index: 999;
@@ -93,14 +93,14 @@ control_noborder
         <div class="row">
             <div class="col-md-6">
             Team :<br />
-            <asp:DropDownList CssClass="control" ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged">
+            <asp:DropDownList CssClass="control form-control" ID="ddlTeam" runat="server" DataTextField="Name" DataValueField="Id" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged">
                 <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="rfvTeam" runat="server" ControlToValidate="ddlTeam" InitialValue="-- Select --" ValidationGroup="vgComplete" ErrorMessage="Please select a Team" Text="*" />
                 </div>
             <div class="col-md-6">
             Course:<br />
-            <asp:DropDownList CssClass="control" ID="ddlCourse" runat="server" AppendDataBoundItems="True" DataTextField="Name" DataValueField="Id" OnSelectedIndexChanged="ddlCourse_SelectedIndexChanged" AutoPostBack="True">
+            <asp:DropDownList CssClass="control form-control" ID="ddlCourse" runat="server" AppendDataBoundItems="True" DataTextField="Name" DataValueField="Id" OnSelectedIndexChanged="ddlCourse_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem>-- Select --</asp:ListItem>
             </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvCourse" runat="server" ControlToValidate="ddlCourse" InitialValue="-- Select --" ValidationGroup="vgComplete" ErrorMessage="Please select a Course" Text="*" />
@@ -109,7 +109,7 @@ control_noborder
                     <div class="row mt-4">
                           <div class="col-md-6">
             Completion Date :<br />
-                                  <asp:TextBox ID="txtDatePicker" runat="server" CssClass="control" />
+                                  <asp:TextBox ID="txtDatePicker" runat="server" CssClass="control form-control" />
                              <%-- <ajaxToolkit:CalendarExtender TargetControlID="txtDatePicker" runat="server" ID="ajaxCal"/>--%><ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDatePicker" PopupButtonID="Image1" />
                                 <asp:RequiredFieldValidator ID="rfvDatePicker" runat="server" ControlToValidate="txtDatePicker"  ValidationGroup="vgComplete" ErrorMessage="Please select a Completion Date" Text="*" />
                         
@@ -118,7 +118,7 @@ control_noborder
                     </div>
         <div class="row mt-4">
             <div class="col-md-12" id="dvGrid" runat="server">
-        <asp:GridView Width="100%" CellPadding="4" CellSpacing="4"  BorderWidth="1px" CssClass="control_noborder" ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
+        <asp:GridView Width="100%" CellPadding="4" CellSpacing="4"   CssClass="control_noborder" ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableModelValidation="True">
             <Columns>
                 <asp:TemplateField>
                     <HeaderTemplate>
@@ -133,14 +133,14 @@ control_noborder
                 <asp:BoundField DataField="LastName" HeaderText="Last Name" ReadOnly="True" SortExpression="LastName" />
             </Columns>
             <RowStyle Width="100%" />
-            <AlternatingRowStyle Width="100%" />
+            <AlternatingRowStyle Width="100%"  />
             <HeaderStyle Width="100%" />
         </asp:GridView>
             </div>
             </div>
         <div class="row">
             <div class="col-md-12 mt-4" id="dvComplete" runat="server">
-        <asp:Button ID="btComplete" runat="server" OnClick="btComplete_Click" Text="Mark Complete" ValidationGroup="vgComplete" />
+        <asp:Button ID="btComplete" runat="server" CssClass="btn btn-primary" OnClick="btComplete_Click" Text="Mark Complete" ValidationGroup="vgComplete" />
                 <asp:Label ID="lblmsg" runat="server" />
                 </div>
             </div>
@@ -149,13 +149,18 @@ control_noborder
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
    
         </div>
+            
              
             </ContentTemplate>
+  
         </asp:UpdatePanel>
-            <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+            <asp:UpdateProgress runat="server"  >
         <ProgressTemplate>
-          <img src="loader4.gif" />
-            Loading...
+           <%-- <div class="modal">
+                <div class="center">--%>
+             <div id="IMGDIV" align="center" valign="middle" runat="server" style="position: absolute;left: 35%;top: 25%;visibility:visible;vertical-align:middle;border-style:inset;border-color:black;background-color:black; opacity:initial;">
+          <img src="loader4.gif" /></div>
+         <%--   </div></div>--%>
         
     </div></ProgressTemplate>
     </asp:UpdateProgress>

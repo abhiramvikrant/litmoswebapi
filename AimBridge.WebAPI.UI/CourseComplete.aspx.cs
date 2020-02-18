@@ -64,6 +64,7 @@ namespace AimBridge.WebAPI.UI
             ddlCourse.DataBind();
             gvUsers.DataSource = null;
             gvUsers.Style.Add("display", "none");
+            btComplete.Style.Add("display", "none");
             
         }
 
@@ -74,6 +75,7 @@ namespace AimBridge.WebAPI.UI
 
         private void BindGrid()
         {
+           
             List<UserModel> cmodel = null;
             List<TeamUsersModel> modelTu = null;
             if (ddlTeam.SelectedIndex > 0 && ddlCourse.SelectedIndex > 0)
@@ -84,12 +86,16 @@ namespace AimBridge.WebAPI.UI
                 var dsmodel = cmodel.Join(modelTu, r => r.UserName, y => y.Username, (r, y) => new { r.UserName, r.FirstName, r.LastName }).ToList();
                 if (dsmodel.Count > 0)
                 {
-                    
+                  
                     gvUsers.DataSource = dsmodel;
                     gvUsers.DataBind();
                     //gvUsers.Style.Add("display", "block");
                     dvGrid.Visible = true;
+                    gvUsers.CssClass = "control";
+                    //gvUsers.Style.Add("display", "block");
+                    
 
+                    dvGrid.Style.Add("display", "block");
                     dvComplete.Visible = true;
                     btComplete.Style.Add("display", "block");
                 }
@@ -97,8 +103,10 @@ namespace AimBridge.WebAPI.UI
                 {
                     gvUsers.DataSource = null;
                     gvUsers.DataBind();
-
-                    dvGrid.Visible = false;
+                    gvUsers.Style.Remove("display");
+                    gvUsers.Visible = false;
+                    //dvGrid.Visible = false;
+                    btComplete.Style.Remove("display");
                     btComplete.Style.Add("display", "none");
                     dvComplete.Visible = false;
                     //btComplete.Visible = false;
