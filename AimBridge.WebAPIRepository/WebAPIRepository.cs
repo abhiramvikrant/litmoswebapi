@@ -18,16 +18,19 @@ namespace AimBridge.WebAPIClient
         public const SslProtocols _Tls12 = (SslProtocols)0x00000C00;
         public const SecurityProtocolType Tls12 = (SecurityProtocolType)_Tls12;
         //variables to be assigned from config file
-        private readonly string APIKEY, baseurl,ABsource;
+        public readonly string APIKEY, baseurl,ABsource;
        
         public WebAPIRepository()
         {
             // added to bypass security exception
             ServicePointManager.SecurityProtocol = Tls12;
+            List<ConfigModel> modelList = null;
             ConfigDbContext db = new ConfigDbContext();
-            APIKEY = db.GetAPIKey();
-               baseurl = ConfigurationManager.AppSettings["baseurl"].ToString();
-            ABsource = ConfigurationManager.AppSettings["ABsource"].ToString();
+            modelList = db.GetAllConfigValues();
+            APIKEY = modelList.Where(x => x.ConfigKey == "apikey").Select(y => y.ConfigValue).ToList()[0];
+
+               baseurl = modelList.Where(x => x.ConfigKey == "baseurl").Select(y => y.ConfigValue).ToList()[0];
+            ABsource = modelList.Where(x => x.ConfigKey == "absource").Select(y => y.ConfigValue).ToList()[0];
         }
 
         public List<string> PostCompleteCourseRequest(string xmlstring)

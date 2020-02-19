@@ -36,9 +36,38 @@
            </div>
           
        </div>
+          <div class="row">
+           <div class="col-md-6 mt-4">
+               <label>Edit the Base URL below:</label>
+               <asp:TextBox runat="server" ID="txtBaseURL" CssClass="form-control control" />
+               
+              
+           </div>
+           <div class="col-md-1 mt-4" style="text-align:left;padding:0px; margin-left=0px;">&nbsp;<br />
+               <asp:RequiredFieldValidator runat="server" ID="rfvBaseURL" ControlToValidate="txtBaseURL" CssClass="control"  ValidationGroup="vgSet" Text="*" ErrorMessage="Base URL required"/>
+           </div>
+          
+       </div>
+          <div class="row">
+           <div class="col-md-6 mt-4">
+               <label>Edit the Source below:</label>
+               <asp:TextBox runat="server" ID="txtSource" CssClass="form-control control" />
+               
+              
+           </div>
+           <div class="col-md-1 mt-4" style="text-align:left;padding:0px; margin-left=0px;">&nbsp;<br />
+               <asp:RequiredFieldValidator runat="server" ID="rfvSource" ControlToValidate="txtSource" CssClass="control"  ValidationGroup="vgSet" Text="*" ErrorMessage="Source required"/>
+           </div>
+          
+       </div>
        <div class="row mt-4">
            <div class="col-md-3">
-               <asp:Button runat="server" CssClass="btn btn-primary" Text="Update" ValidationGroup="vgSet" />
+               <asp:Button runat="server" CssClass="btn btn-primary" Text="Update" ValidationGroup="vgSet" ID="btUpdate" OnClick="btUpdate_Click" />
+           </div>
+       </div>
+       <div class="row mt-4">
+           <div class="col">
+               <asp:Label ID="lblMessage" runat="server" />
            </div>
        </div>
    </div>
