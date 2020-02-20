@@ -34,7 +34,7 @@ namespace AimBridge.WebAPI.UI
 
             if (result)
             {
-                lblMessage.Text = "Config Value Updated.";
+                lblMessage.Text = "Config Values Updated.";
             }
             else
             {

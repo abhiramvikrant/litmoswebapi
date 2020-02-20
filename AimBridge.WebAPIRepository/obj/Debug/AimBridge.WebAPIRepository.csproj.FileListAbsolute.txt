@@ -6,3 +6,4 @@ D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIReposi
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.csproj.CopyComplete
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.dll
 D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.pdb
+D:\projects\Litmos\AimBridgeClient\Aimbridge.WebAPIClient\AimBridge.WebAPIRepository\obj\Debug\AimBridge.WebAPIRepository.csprojAssemblyReference.cache

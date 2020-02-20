@@ -86,7 +86,7 @@ control_noborder
         <ContentTemplate>
             <div class="card-header" ><div><h1>AimBridge Bulk Course Complete</h1>
       
-                </div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set API key</a></div></div>
+                </div> <div class="align-items-lg-end"><a href="setapikey.aspx">Set Config Values</a></div></div>
             
                 <div class="container">
                     <div class="row"><div class="col-md-6">          <asp:ValidationSummary ID="vsMarkComplete" ShowSummary="true" runat="server"  ValidationGroup="vgComplete" HeaderText="Fix the following errors:"/></div></div>
